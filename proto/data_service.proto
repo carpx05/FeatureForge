@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package FeatureForge;
+
+option go_package = "github.com/carpx05/FeatureForge/proto";
+
+service DataIngestion {
+  rpc SendData (DataPayload) returns (Response) {}
+}
+
+message DataPayload {
+  string id= 1;
+  string data_type = 2;
+  bytes data = 3;
+  int64 timestamp = 4;
+}
+
+message Response {
+    bool success = 1;
+    string message = 2;
+}
